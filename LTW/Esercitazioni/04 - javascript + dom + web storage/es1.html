@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form con Local Storage</title>
+</head>
+<body>
+
+<h2>Registrazione Utente</h2>
+
+<form id="userForm">
+    <label for="cognome">Cognome:</label>
+    <input type="text" id="cognome" name="cognome" maxlength="40"><br><br>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" maxlength="30"><br><br>
+
+    <label for="matricola">Matricola:</label>
+    <input type="text" id="matricola" name="matricola" maxlength="12"><br><br>
+
+    <input type="submit" value="Invio">
+    <input type="reset" value="Reset">
+    <input type="button" value="Stampa Local Storage" onclick="printLocalStorage()">
+    <input type="button" value="Resetta Local Storage" onclick="resetLocalStorage()">
+</form>
+
+<div id="output"></div>
+
+<script>
+    // Funzione per salvare i dati nel localStorage al momento dell'invio del modulo
+    document.getElementById('userForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenire il comportamento predefinito del modulo
+
+        // Ottenere i valori dei campi del modulo
+        var cognome = document.getElementById('cognome').value;
+        var nome = document.getElementById('nome').value;
+        var matricola = document.getElementById('matricola').value;
+
+        // Creare un oggetto per rappresentare l'utente
+        var user = {
+            cognome: cognome,
+            nome: nome,
+            matricola: matricola
+        };
+
+        // Salvare l'utente nel localStorage
+        localStorage.setItem('user_' + Date.now(), JSON.stringify(user));
+
+        // Pulire i campi del modulo dopo l'invio
+        document.getElementById('cognome').value = '';
+        document.getElementById('nome').value = '';
+        document.getElementById('matricola').value = '';
+    });
+
+    // Funzione per stampare gli utenti memorizzati nel localStorage
+    function printLocalStorage() {
+        var outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = '';
+
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            var userData = localStorage.getItem(key);
+            var user = JSON.parse(userData);
+
+            outputDiv.innerHTML += '<p><strong>Cognome:</strong> ' + user.cognome + ', <strong>Nome:</strong> ' + user.nome + ', <strong>Matricola:</strong> ' + user.matricola + '</p>';
+        }
+    }
+
+    // Funzione per resettare il localStorage
+    function resetLocalStorage() {
+        localStorage.clear();
+        document.getElementById('output').innerHTML = '';
+    }
+</script>
+
+</body>
+</html>

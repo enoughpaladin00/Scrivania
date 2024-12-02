@@ -1,0 +1,119 @@
+@media screen and (max-width: 992px){
+
+
+    .home_carousel{
+        display: none;
+    }
+
+    #accedi{
+        margin-top: 6%;
+    }
+
+    #dropdown{
+        margin:5px;
+    }
+
+    .product{
+        width: 100%;
+    }
+    
+    .login_bar{
+        width: 100%;
+    }
+
+    .header{
+        width: 100%;
+    }
+
+    .img_shop{
+        width: 90%;
+    }
+
+    .ricerca{
+        margin-top: 5%;
+    }
+
+    .line{
+        margin-right: 0%;
+    }
+
+    .hearth{
+        margin-right: 0%;
+    }
+
+    .custom-auto-width{
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 5% !important;
+    }
+
+    .custom-auto-width-button{
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+
+    .align_product{
+        text-align: center;
+    }
+
+    footer{
+        height: auto;
+    }
+
+    .description_product{
+        text-align: center;
+    }
+
+    .acquista_button{
+        margin-top: 0;
+    }
+
+    .custom-auto-width-photo{
+        flex: 0 0 auto !important;
+        width: 50% !important;
+        max-width: 100% !important;
+        margin-top: 5% !important;
+    }
+
+    .list-product{
+        width: 85%;
+    }
+
+
+    .photo{
+        margin-bottom: 0;
+    }
+
+    .single_product{
+        width: 80%;
+    }
+
+    .user-product{
+        margin-top: 10%;
+    }
+
+    .ins_annuncio{
+        margin-bottom: 5%;
+    }
+
+    .single_product:hover{
+        transform: none;
+        border: none;
+    }
+
+    .register{
+        width: 85%;
+    }
+
+    .insertAd{
+        width: 85%;
+    }
+
+    .buyPopup{
+        width: 95%;
+    }
+
+}

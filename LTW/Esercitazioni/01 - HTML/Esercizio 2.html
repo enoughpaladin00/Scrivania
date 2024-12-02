@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>Cognome e nome
+            <input required type="text" name="name" size="50" pattern!="[0-9]+">
+        </label>
+        <br>
+        <label>Codice fiscale
+            <input type="text" name="codiceFiscale" size="16" pattern="[a-zA-Z]{7}[0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]">
+        </label>
+        <br>
+        <label>telefono
+            <input type="tel" name="telefono" size="15" pattern="\+[0-9]{2}\-[0-9]{3}\-[0-9]{7}">
+        </label>
+        <br>
+        <label>Data di nascita
+            <input type="date" name="data">
+        </label>
+        <br>
+        <label>CAP
+            <input type="number" name="cap" size="5" pattern="[0-9]{5}">
+        <br>
+        <label>Studente lavoratore
+            <input type="checkbox" name="lavoratore">
+        </label>
+        <br>
+        <label>Foto
+            <input multiple type="file" name="foto" accept="image/*">
+        </label>
+        <br>
+        <label>Descrizione del lavoro
+            <input type="text" name="descrizioneLavoro" size="80">
+        </label>
+        <br>
+        <table border="0">
+            <tr>
+                <td align="center">
+                    <button type="submit" name="Invio">INVIA FORM</button>
+                </td>
+                <td align="center">
+                    <button type="reset" name="Reset">RESET FORM</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="application/javascript">
+            function verifyCap(){
+                if(document.registrStudente.CAP.value.size!=5 && isNaN(document.registrStudente.CAP.value)){
+                    alert("Il cap deve essere un numero di 5 cifre!");
+                    return false;
+                }
+            }
+            function verifyName(){
+                if(!isNaN(document.registrStudente.nome.value)){
+                    alert("Il nome non può essere un numero!");
+                    return false;
+                }
+            }
+            function validateSend(){
+                if(document.registrStudente.nome.value==""){
+                    alert("Il nome non deve essere vuoto!");
+                    return false;
+                }
+                if(!document.querySelector('input[name=sesso]:checked')){
+                    alert("Seleziona un sesso!");
+                    return false;
+                }
+                if(document.registrStudente.ateneo.value=="none"){
+                    alert("seleziona un ateneo!");
+                    return false;
+                }
+                if(document.registrStudente.studLavoratore.checked && document.registrStudente.desc.value==""){
+                    alert("Descrivi il tuo lavoro!");
+                    return false;
+                }
+                if(!document.registrStudente.studLavoratore.checked && document.registrStudente.desc.value!=""){
+                    alert("Hai descritto un lavoro, ma senza averne uno?");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="" method="post" name="registrStudente" onsubmit="return validateSend()">
+            <table border="0">
+                <tr>
+                    <th>Cognome e nome</th>
+                    <td><input type="text" name="nome" size="50" maxlength="50" onchange="return verifyName()"></td>
+                </tr>
+                <tr>
+                    <th>Sesso</th>
+                    <td><label for="M">M</label>
+                        <input type="radio" name="sesso" id="M" value="maschio">
+                        <label for="F">F</label>
+                        <input type="radio" name="sesso" id="F" value="femmina">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Ateneo</th>
+                    <td><select name="ateneo">
+                        <option selected value="none"></option>
+                        <option value="uniroma1">La Sapienza</option>
+                        <option value="uniroma2">Tor Vergata</option>
+                        <option value="uniroma3">Roma Tre</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <th>CAP</th>
+                    <td><input type="text" name="CAP" size="5" minlength="5" maxlength="5" onchange="return verifyCap()"></td>
+                </tr>
+                <tr>
+                    <th>Studente lavoratore</th>
+                    <td><input type="checkbox" name="studLavoratore"></td>
+                </tr>
+                <tr>
+                    <th>Descrizione lavoro svolto</th>
+                    <td><input type="text" name="desc" size="80" maxlength="80"></textarea></td>
+                </tr>
+                <tr>
+                    <td align="right"><button type="submit" value="invio">INVIO</button></td>
+                    <td align="left"><button type="reset" value="reset">RESET</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

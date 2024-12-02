@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodottoinvendita</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div class="nav-bar"></div>
+    <div id="app">
+        <div class="cart">
+            <p>Carrello({{cart}})</p>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img v-bind: src="image" />
+            </div>
+            <div class="product-info">
+                <h1>Prodottoinvendita:{{product}}</h1>
+                Descrizione:{{description}}
+                <p v-if="disp>10 && onSale">Disponibile</p>
+                <p v-else-if="disp>0 && onSale">Ultime scorte!</p>
+                <p v-else>Non disponibile</p>
+                <ul>
+                    <li v-for="x in details">{{x.text}}</li>
+                </ul>
+                <div v-for="x in variants":key="x.id" class="color-box" v-bind:style="{backgroundColor:x.htmlColor}">
+                    <p v-on:click="updateImage(x.image)">{{x.color}}</p>
+                </div>
+                <button v-on:click="addToCart()" v-bind:disabled="!onSale||disp==0" v-bind:class="{disabledButton:!onSale||disp==0}">Aggiungi al carrello</button>
+            </div>
+        </div>
+    </div>
+    <script type="application/javascript" src="app.js"></script>
+</body>
+</html>

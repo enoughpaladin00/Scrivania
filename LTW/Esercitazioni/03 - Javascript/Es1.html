@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="application/javascript">
+            function validateForm(){
+                if(document.form.cognome.value==""){
+                    alert("Inserire cognome");
+                    return false;
+                }
+                if(document.form.nome.value==""){
+                    alert("Inserire nome");
+                    return false;
+                }
+                if(document.form.matricola.value==""){
+                    alert("Inserire matricola");
+                    return false;
+                }
+                if(isNaN(document.form.matricola.value)){
+                    alert("Inserire un numero come matricola");
+                    return false;
+                }
+                if(document.form.regione.value=="NoRegionSelected"){
+                    alert("Seleziona una regione");
+                    return false;
+                }
+                if((document.form.email.value=="") && document.form.telefono.value==""){
+                    alert("Inserisci email o numero di telefono");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="" method="post" name="form" onsubmit="return validateForm();">
+            <table border="1">
+                <tr>
+                    <th align="center">Cognome</th>
+                    <td><input type="text" name="cognome" size="40" maxlength="40"></td>
+                </tr>
+                <tr>
+                    <th align="center">Nome</th>
+                    <td><input type="text" name="nome" size="30" maxlength="30"></td>
+                </tr>
+                <tr>
+                    <th align="center">Matricola</th>
+                    <td><input type="text" name="matricola" size="12" minlength="12" maxlength="12"></td>
+                </tr>
+                <tr>
+                    <th align="center">Regione di residenza</th>
+                    <td> <select size="1" cols="20" name="regione">
+                        <option selected value="NoRegionSelected">
+                        <option value="Abruzzo">Abruzzo
+                        <option value="Basilicata">Basilicata
+                        <option value="Calabria">Calabria
+                        <option value="Campania">Campania
+                        <option value="EmiliaRomagna">Emilia-Romagna
+                        <option value="FriuliVeneziaGiulia">Friuli Venezia Giulia
+                        <option value="Lazio">Lazio
+                        <option value="Liguria">Liguria
+                        <option value="Lombardia">Lombardia
+                        <option value="Marche">Marche
+                        <option value="Molise">Molise
+                        <option value="Piemonte">Piemonte
+                        <option value="Puglia">Puglia
+                        <option value="Sardegna">Sardegna
+                        <option value="Sicilia">Sicilia
+                        <option value="Toscana">Toscana
+                        <option value="TrentinoAltoAdige">Trentino Alto Adige
+                        <option value="Umbria">Umbria
+                        <option value="ValdAosta">Val d'Aosta
+                        <option value="Veneto">Veneto
+                    </select></td>
+                </tr>
+                <tr>
+                    <th align="center">E-mail</th>
+                    <td><input type="text" name="email" size="30" maxlength="30"></td>
+                </tr>
+                <tr>
+                    <th align="center">Numero di telefono</th>
+                    <td><input type="text" name="telefono" size="15" maxlength="15"></td>
+                </tr>
+                <tr>
+                    <th align="center">Richieste particolari</th>
+                    <td><textarea name="richieste" rows="12" cols="60"></textarea></td>
+                </tr>
+                <tr>
+                    <td align="center"><button type="submit" value="invio">INVIO</td>
+                    <td align="center"><button type="reset" value="reset">RESET</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
